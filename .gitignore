@@ -396,3 +396,37 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+
+# Miscellaneous
+/.angular/cache
+.sass-cache/
+/connect.lock
+/coverage
+/libpeerconnection.log
+testem.log
+/typings
+.browserslistrc
+.editorconfig
+.vscode
+dist
+
+# System files
+.DS_Store
+Thumbs.db
+
+api/GestUser/bin
+api/GestUser/.vs
+api/GestUser/obj
+api/GestUser/Properties/PublishProfiles/FolderProfile.pubxml
+api/GestUser/Properties/PublishProfiles/FolderProfile.pubxml.user
+
+api/GestUserMySql
+api/GestUserMySql/bin
+api/GestUserMySql/.vs
+api/GestUserMySql/obj
+api/GestUserMySql/Properties/PublishProfiles/FolderProfile.pubxml
+api/GestUserMySql/Properties/PublishProfiles/FolderProfile.pubxml.user
+
+
+src/web.config

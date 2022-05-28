@@ -1,0 +1,51 @@
+<div class="container login-container">
+    <form (ngSubmit)="form.valid && save()" #form="ngForm">
+        <div class="row">
+            <div class="col-md-6 login-form">
+                <h3>Change Password</h3>
+                <div class="form-group">
+                    <label class="form-label">Old Password</label>
+                    <input type="password" class="form-control" name="vpassword" placeholder="Password"
+                        [(ngModel)]="changePwd.oldPwd" required #vpwd="ngModel">
+                    <span style="color:red" *ngIf="vpwd.invalid && (vpwd.dirty || vpwd.touched)">
+                        Insert old Password
+                    </span>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">New Password</label>
+                    <input type="password" class="form-control" name="password" placeholder="Password"
+                        [(ngModel)]="changePwd.newPwd" required #npwd="ngModel">
+                    <span style="color:red" *ngIf="npwd.invalid && (npwd.dirty || npwd.touched)">
+                        Insert new Password
+                    </span>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Confirm Password</label>
+                    <input type="password" class="form-control" name="confPassword" placeholder="Confirm Password"
+                        [(ngModel)]="confPwd" required #confpwd="ngModel">
+                    <span style="color:red" *ngIf="confpwd.invalid && (confpwd.dirty || confpwd.touched)">
+                        Confirm Password
+                    </span>
+                </div>
+                <div class="form-group">
+                    <button class="btnSubmit" (click)=save() [disabled]="form.invalid">Save</button>
+                </div>
+                <br/>
+                <div class="alert alert-danger" role="alert" *ngIf="showErrMsg">
+                    {{errMsg}}
+                </div>
+                <div class="alert alert-success" *ngIf="confirm">
+                    {{confirm}}
+                    <br/>
+                    Go to
+                    <a routerLink="/login" class="Link">Login</a>                    
+                </div>
+                <!--<div class="alert alert-danger" role="alert" *ngIf='notlogged'>
+                    {{errMsg2}}
+                </div> -->
+                <app-spinner></app-spinner>
+            </div>                        
+        </div>        
+    </form>    
+</div>
+    

@@ -1,0 +1,25 @@
+<div class="container login-container">
+    <div class="row">
+        <div class="col-md-6 login-form">
+            <h3>Send Email</h3>
+            <div class="form-group">
+                <input type="text" class="form-control" id="email" placeholder="Email" [(ngModel)]="userId.email"
+                required #mail="ngModel">
+            </div>
+            <div class="form-group">
+                <button (click)=sendEmail() class="btnSubmit" [disabled]="mail.invalid">Send Email</button>
+            </div>
+            <br/>
+            <div class="alert alert-danger" role="alert" *ngIf="showErrMsg">
+                {{errMsg}}
+            </div>
+            <div class="alert alert-success" *ngIf="confirm">
+                {{confirm}}
+            </div>
+            <!--<div class="alert alert-danger" role="alert" *ngIf='notlogged'>
+                {{errMsg2}}
+            </div> -->
+            <app-spinner></app-spinner>
+        </div>        
+    </div>
+</div>
