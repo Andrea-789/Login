@@ -5,7 +5,7 @@
     max-width: 1100px;
 }
 
-.login-form{
+.login-form {
     padding: 7%;
     box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
 }
@@ -28,9 +28,8 @@
     margin-top: 3%;
 }
 
-.login-form .Link{
+.login-form .Link {
     color: #0062cc;
     font-weight: 500;
-    text-decoration: none;  
-  }
- 
+    text-decoration: none;
+}

@@ -4,12 +4,12 @@
             <h3>Send Email</h3>
             <div class="form-group">
                 <input type="text" class="form-control" id="email" placeholder="Email" [(ngModel)]="userId.email"
-                required #mail="ngModel">
+                    required #mail="ngModel">
             </div>
             <div class="form-group">
                 <button (click)=sendEmail() class="btnSubmit" [disabled]="mail.invalid">Send Email</button>
             </div>
-            <br/>
+            <br />
             <div class="alert alert-danger" role="alert" *ngIf="showErrMsg">
                 {{errMsg}}
             </div>
@@ -20,6 +20,6 @@
                 {{errMsg2}}
             </div> -->
             <app-spinner></app-spinner>
-        </div>        
+        </div>
     </div>
 </div>

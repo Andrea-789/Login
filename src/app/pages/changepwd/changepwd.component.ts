@@ -35,8 +35,6 @@ export class ChangepwdComponent implements OnInit {
       data => this.userId = data["id"]
     );
 
-    //this.userId = this.route.snapshot.params["id"];
-
     if (this.userId != null)
       sessionStorage.setItem("userId", this.userId);
   }

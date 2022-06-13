@@ -35,7 +35,7 @@ import { NetworkInterceptor } from './services/interceptors/network.interceptor'
     HttpClientModule
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: NetworkInterceptor, multi: true}
+    { provide: HTTP_INTERCEPTORS, useClass: NetworkInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

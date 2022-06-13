@@ -13,7 +13,6 @@ namespace GestUser.Services
     Task<bool> InsUser(Users user);
     Task<bool> UpdUser(Users user);
     Task<bool> DelUser(Users user);
-    //Task<bool> Authenticate(string username, string password);
     Task<Users> Authenticate(string username, string password);
     Task<string> GetToken(string username);
     Task<bool> UserExists(string userId);

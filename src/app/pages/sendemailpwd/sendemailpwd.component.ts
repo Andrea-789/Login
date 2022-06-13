@@ -10,10 +10,10 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class SendemailpwdComponent implements OnInit {
 
-  errMsg: string  = "";
+  errMsg: string = "";
   showErrMsg: boolean = false;
   confirm: string = "";
-  
+
   apiMsg: ApiMsg = {
     message: ""
   }
@@ -29,14 +29,14 @@ export class SendemailpwdComponent implements OnInit {
   }
 
   sendEmail = () => {
-     
+
     this.errMsg = "";
     this.showErrMsg = false;
 
     if (this.userId.email != "") {
       let regex = new RegExp("([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\"\(\[\]!#-[^-~ \t]|(\\[\t -~]))+\")@([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\[[\t -Z^-~]*])");
 
-      if (!regex.test(this.userId.email)){
+      if (!regex.test(this.userId.email)) {
         this.errMsg = "Insert a valid Email";
         this.showErrMsg = true;
         return;
@@ -55,10 +55,8 @@ export class SendemailpwdComponent implements OnInit {
         this.errMsg = error.error.message;
         this.showErrMsg = true;
       }
-    });    
-    
+    });
 
   }
 
-  
 }

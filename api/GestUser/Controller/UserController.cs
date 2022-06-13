@@ -37,7 +37,6 @@ namespace GestUser.Controllers
     {
       string tokenJWT = string.Empty;
 
-      //bool IsOk = await userRepository.Authenticate(userParam.User, userParam.Password);
       Users user = await userRepository.Authenticate(userParam.User, userParam.Password);
 
       if (user == null)
@@ -60,8 +59,6 @@ namespace GestUser.Controllers
       }
 
     }
-
-    
 
     [HttpGet("all")]
     [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(ErrMsg))]
@@ -161,7 +158,7 @@ namespace GestUser.Controllers
         user.Role = "ADMIN";
       else
         user.Role = "USER";
-    
+
       PasswordHasher Hasher = new PasswordHasher();
 
       user.Password = Hasher.Hash(user.Password);
@@ -199,7 +196,7 @@ namespace GestUser.Controllers
       bool isPresent = await this.userRepository.UserExists(user.Id);
       if (!isPresent)
       {
-        
+
         return StatusCode(StatusCodes.Status422UnprocessableEntity, new ErrMsg($"User not found", this.HttpContext.Response.StatusCode));
       }
 
@@ -312,7 +309,7 @@ namespace GestUser.Controllers
       if (!isPresent)
         return StatusCode(StatusCodes.Status422UnprocessableEntity, new ErrMsg($"User not found", this.HttpContext.Response.StatusCode));
 
-      PasswordHasher Hasher = new PasswordHasher();      
+      PasswordHasher Hasher = new PasswordHasher();
 
       changePwd.NewPwd = Hasher.Hash(changePwd.NewPwd);
 

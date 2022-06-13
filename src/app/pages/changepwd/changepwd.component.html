@@ -30,22 +30,21 @@
                 <div class="form-group">
                     <button class="btnSubmit" (click)=save() [disabled]="form.invalid">Save</button>
                 </div>
-                <br/>
+                <br />
                 <div class="alert alert-danger" role="alert" *ngIf="showErrMsg">
                     {{errMsg}}
                 </div>
                 <div class="alert alert-success" *ngIf="confirm">
                     {{confirm}}
-                    <br/>
+                    <br />
                     Go to
-                    <a routerLink="/login" class="Link">Login</a>                    
+                    <a routerLink="/login" class="Link">Login</a>
                 </div>
                 <!--<div class="alert alert-danger" role="alert" *ngIf='notlogged'>
                     {{errMsg2}}
                 </div> -->
                 <app-spinner></app-spinner>
-            </div>                        
-        </div>        
-    </form>    
+            </div>
+        </div>
+    </form>
 </div>
-    

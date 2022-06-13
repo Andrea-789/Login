@@ -30,13 +30,6 @@ namespace GestUser.Dtos
 
     public string Role { get; set; } = string.Empty;
 
-    //public virtual List<ProfilesDto> Profiles { get; set; }
   }
 
-  /*
-  public class ProfilesDto
-  {
-      public string Type { get; set; }
-  }
-  */
 }

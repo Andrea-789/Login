@@ -17,7 +17,7 @@ const routes: Routes = [
   {path:"forgotpwd", component: SendemailpwdComponent},
   {path: "changepwd", component: ChangepwdComponent},
   {path: "activation/:id", component: ActivationComponent},
-  {path:"**", component:ErrorComponent}                     //pagina di errore, deve essere sempre l'ultima
+  {path:"**", component:ErrorComponent}                     
 ];
 
 @NgModule({

@@ -12,10 +12,10 @@ import { UserComponent } from '../user/user.component';
 })
 export class ActivationComponent implements OnInit {
 
-  errMsg: string  = "";
+  errMsg: string = "";
   showErrMsg: boolean = false;
   confirm: string = "";
-  
+
   apiMsg: ApiMsg = {
     message: ""
   }
@@ -28,11 +28,10 @@ export class ActivationComponent implements OnInit {
   constructor(private route: ActivatedRoute, private userService: UsersService) { }
 
   ngOnInit(): void {
-    
-    this.userId.id = this.route.snapshot.params["id"];
-    //console.log("id=", this.userId.id);
 
-    if (this.userId.id == null || this.userId.id == ""){
+    this.userId.id = this.route.snapshot.params["id"];    
+
+    if (this.userId.id == null || this.userId.id == "") {
       this.errMsg = "No user to activate";
       this.showErrMsg = true;
       return;
@@ -50,7 +49,7 @@ export class ActivationComponent implements OnInit {
         this.errMsg = error.error.message;
         this.showErrMsg = true;
       }
-    });    
+    });
   }
 
 }

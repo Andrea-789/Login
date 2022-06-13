@@ -17,7 +17,7 @@ export class AuthJwtService {
     console.log(User, Password);
 
     return this.httpClient.post<Token>(
-      `${environment.userServerUri}auth`, {User, Password}).pipe(
+      `${environment.userServerUri}auth`, { User, Password }).pipe(
         map(
           data => {
             sessionStorage.setItem("User", User);
@@ -28,12 +28,12 @@ export class AuthJwtService {
             return data;
           }
         )
-      );    
+      );
   }
 
-  getAuthToken = () : string => {
+  getAuthToken = (): string => {
 
-    let AuthHeader : string = "";
+    let AuthHeader: string = "";
     let AuthToken = sessionStorage.getItem("AuthToken");
 
     if (AuthToken != null)
@@ -42,12 +42,12 @@ export class AuthJwtService {
     return AuthHeader;
   }
 
-  loggedUser = () : string | null => (sessionStorage.getItem("User")) ? sessionStorage.getItem("User") : "";
+  loggedUser = (): string | null => (sessionStorage.getItem("User")) ? sessionStorage.getItem("User") : "";
 
-  isLogged = () : boolean => (sessionStorage.getItem("User")) ? true : false;
+  isLogged = (): boolean => (sessionStorage.getItem("User")) ? true : false;
 
-  clearUser = () : void => (sessionStorage.removeItem("User"));
+  clearUser = (): void => (sessionStorage.removeItem("User"));
 
-  clearAll = () : void => (sessionStorage.clear());
-  
+  clearAll = (): void => (sessionStorage.clear());
+
 }

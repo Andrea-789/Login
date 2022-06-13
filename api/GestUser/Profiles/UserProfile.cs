@@ -4,13 +4,12 @@ using GestUser.Models;
 
 namespace GestUser.Profiles
 {
-    public class UserProfile : Profile
+  public class UserProfile : Profile
+  {
+    public UserProfile()
     {
-        public UserProfile()
-        {
-            CreateMap<Users, UsersDto>();
-            
-        }
-    
+      CreateMap<Users, UsersDto>();
+
     }
+  }
 }

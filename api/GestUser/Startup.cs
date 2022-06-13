@@ -38,7 +38,7 @@ namespace GestUser
       services.Configure<EmailSettings>(appEmailSection);
 
       var appInterfaceSection = Configuration.GetSection("InterfaceSettings");
-      services.Configure<InterfaceSettings>(appInterfaceSection);      
+      services.Configure<InterfaceSettings>(appInterfaceSection);
 
       services.AddScoped<IUserService, UserService>();
 

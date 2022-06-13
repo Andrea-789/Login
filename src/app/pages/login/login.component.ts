@@ -24,8 +24,8 @@ export class LoginComponent implements OnInit {
   apiMsg: ApiMsg = {
     message: ""
   }
-  
-  constructor(private router: Router, private Auth: AuthJwtService, private user: UsersService ) { }
+
+  constructor(private router: Router, private Auth: AuthJwtService, private user: UsersService) { }
 
   ngOnInit(): void {
   }
@@ -36,38 +36,36 @@ export class LoginComponent implements OnInit {
       console.log(this.email);
       console.log(this.password);
     }
-    
+
     this.Auth.authenticateService(this.email, this.password).subscribe({
       next: (response) => {
         if (!environment.production)
-          console.log("authenticateService",response);                
-        
+          console.log("authenticateService", response);
+
         let expired = sessionStorage.getItem("expired");
         let enabled = sessionStorage.getItem("enabled");
 
-        if (!environment.production){
+        if (!environment.production) {
           console.log("enabled = " + enabled);
-          console.log("expired = " + expired);          
+          console.log("expired = " + expired);
         }
 
         if (expired == null || expired == "true") {
           sessionStorage.removeItem("expired");
-          sessionStorage.removeItem("enabled");       
+          sessionStorage.removeItem("enabled");
           this.errMsg = "Password expired";
           this.showErrMsg = true;
           this.showPwdExpired = true;
           this.showMsgEnabled = false;
         }
-        else if (enabled == null || enabled == "0")
-        {
+        else if (enabled == null || enabled == "0") {
           sessionStorage.removeItem("enabled");
           sessionStorage.removeItem("expired");
           this.errMsg = "User not enabled";
           this.showErrMsg = true;
           this.showMsgEnabled = true;
         }
-        else
-        {
+        else {
           sessionStorage.removeItem("enabled");
           sessionStorage.removeItem("expired");
           this.router.navigate(["main", this.email]);
@@ -82,7 +80,7 @@ export class LoginComponent implements OnInit {
       }
     });
   }
-  
+
   SendEmail = () => {
     this.user.SendActivationEmail(this.email).subscribe({
       next: (response) => {

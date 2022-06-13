@@ -16,7 +16,7 @@ export class UserComponent implements OnInit {
   constructor(private route: ActivatedRoute, private userService: UsersService,
     private router: Router) { }
 
-  type: string = ""  ;
+  type: string = "";
   id: string = "";
   username: string = "";
   title: string = "";
@@ -56,7 +56,7 @@ export class UserComponent implements OnInit {
 
     console.log(this.type);
     console.log(this.username);
-    
+
     if (this.id) {
       this.title = "Edit";
       this.isEdit = true;

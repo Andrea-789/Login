@@ -31,9 +31,9 @@ export class UsersService {
   Activation = (userId: UserId) =>
     this.httpClient.put<ApiMsg>(environment.userServerUri + "activation", userId);
 
-  SendActivationEmail = (email: string) => 
+  SendActivationEmail = (email: string) =>
     this.httpClient.get<ApiMsg>(environment.userServerUri + "sendactivationemail/" + email);
-  
-  SendEmailPassword = (userId: UserId) => 
+
+  SendEmailPassword = (userId: UserId) =>
     this.httpClient.put<ApiMsg>(environment.userServerUri + "sendpasswordemail", userId)
 }

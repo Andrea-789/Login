@@ -38,7 +38,6 @@ namespace Services
     {
       return await this.loginDbContent.Users
           .Where(c => c.Id == userId)
-          //.Include(r => r.Profili)
           .FirstOrDefaultAsync();
     }
 
@@ -52,7 +51,6 @@ namespace Services
     public async Task<Users> GetUserToDelete(string username)
     {
       return await this.loginDbContent.Users
-          //.AsNoTracking()
           .Where(c => c.Email == username)
           .FirstOrDefaultAsync();
     }
@@ -60,7 +58,6 @@ namespace Services
     public async Task<ICollection<Users>> GetAll()
     {
       return await this.loginDbContent.Users
-          //.Include(r => r.Profili)
           .OrderBy(c => c.Id)
           .ToListAsync();
     }
@@ -113,7 +110,7 @@ namespace Services
     {
       Users user = await this.GetUserByUsername(username);
 
-      //creazione token Jwt
+      //token Jwt
       var tokenHandler = new JwtSecurityTokenHandler();
       var key = Encoding.ASCII.GetBytes(this.appSettings.Secret);
 
@@ -123,11 +120,11 @@ namespace Services
         new Claim(ClaimTypes.Name, user.Email),
         new Claim(ClaimTypes.Role, userRole)
       };
-      
+
       var tokenDescriptor = new SecurityTokenDescriptor
       {
         Subject = new ClaimsIdentity(claims),
-        //validita' del token
+        //token expiration
         Expires = DateTime.UtcNow.AddSeconds(this.appSettings.Expiration),
         SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key),
           SecurityAlgorithms.HmacSha256Signature)
@@ -183,10 +180,10 @@ namespace Services
         MailMessage mail = new MailMessage();
         mail.From = new MailAddress(emailSettings.user);
         mail.To.Add(new MailAddress(email));
-        mail.IsBodyHtml = true;        
+        mail.IsBodyHtml = true;
 
         if (type == "activation")
-        { 
+        {
           mail.Subject = "user activation";
           mail.Body = "Click on the link to <br/>" +
                       "<a href=\"" + interfaceSettings.InterfaceUri + "activation/" + id + "\">ACTIVATE</a>";
